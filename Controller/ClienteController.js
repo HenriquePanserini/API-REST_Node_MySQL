@@ -1,23 +1,24 @@
 const clienteModel = require('../Model/ClienteModel');
 
-const getAllClients = async function(req, res) {
+const clienteController = {
 
-    try {
-        const response = await clienteModel.findAll({
-            attribute: [
-                'CLICOD',
-                'CLINOM'
-            ]
-        });
+    get: async(req, res) => {
+        try {
 
-        res.status(201).json({ response, msg: 'Dados encontrados' })
-    } catch (error) {
-        res.status(401).json({ error: error, msg: 'Dados cliente não encontrado' });
-        console.error(error);
+            const response = clienteModel.findAll({
+                attributes: [
+                    'CLICOD',
+                    'CLINOM'
+                ]
+            })
+
+            res.status(201).json({ msg: 'Dados carregados com sucesso', response })
+
+        } catch (error) {
+            res.status(401).json({ error: error })
+            console.error(error);
+        }
     }
+}
 
-};
-
-module.exports = [
-    getAllClients
-]
+module.exports = clienteController;

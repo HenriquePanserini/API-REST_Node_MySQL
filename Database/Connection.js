@@ -1,21 +1,9 @@
 const Sequelize = require('sequelize');
 
-function connect() {
+const sequelize = new Sequelize('barracao0808', 'root', '12345678', {
+    host: 'localhost',
+    port: '3307',
+    dialect: 'mysql'
+});
 
-    try {
-
-        const Conncetion = new Sequelize('barracao0808', 'root', 't1eteoli', {
-            host: 'localhost',
-            port: '3308',
-            dialect: 'mysql'
-        });
-
-        console.log('Banco de dados conectado na porta 3308');
-
-    } catch (error) {
-        console.error(error);
-    }
-
-}
-
-module.exports = connect;
+module.exports = sequelize;

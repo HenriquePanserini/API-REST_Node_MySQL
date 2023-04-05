@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-const { getAllClients } = require('../Controller/ClienteController');
+const clienteController = require('../Controller/ClienteController');
 
 router
     .route('/cliente')
-    .get((req, res) => getAllClients(req, res));
+    .get((req, res) => clienteController.get(req, res));
 
 
 module.exports = router;

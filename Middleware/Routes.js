@@ -4,3 +4,5 @@ const router = require('express').Router();
 const clienteRouter = require('../Router/ClienteRouter');
 
 router.use('/', clienteRouter);
+
+module.exports = router;

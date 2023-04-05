@@ -1,6 +1,6 @@
-const connection = require('../Database/Connection')
+const sequelize = require('../Database/Connection')
 
-const clienteModel = connection.define({
+const clienteModel = sequelize.define('tslc001', {
 
 }, { tableName: 'tslc001' })
 

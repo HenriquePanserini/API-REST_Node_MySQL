@@ -13,10 +13,14 @@ app.use(bodyParse.urlencoded({ extended: true }))
 
 //Banco de dados -  mysql 4
 const connect = require('./Database/Connection');
-connect();
+
+const route = require('./Middleware/Routes');
+app.use('/', route);
+
+const PORT = 8000;
 
 //Conexão de servidor
-app.listen(process.env.PORT || 3000, () => {
+app.listen(8000, () => {
     try {
         console.log(`Conectado ao servidor na porta ${process.env.PORT}`);
     } catch (error) {
